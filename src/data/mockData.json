@@ -1,0 +1,458 @@
+{
+  "employees": [
+    { "id": "1", "name": "Alice Johnson", "role": "Senior Engineer", "department": "Engineering" },
+    { "id": "2", "name": "Bob Smith", "role": "Product Manager", "department": "Product" },
+    { "id": "3", "name": "Charlie Davis", "role": "Frontend Engineer", "department": "Engineering" },
+    { "id": "4", "name": "Diana Evans", "role": "Backend Engineer", "department": "Engineering" },
+    { "id": "5", "name": "Evan Wright", "role": "QA Engineer", "department": "Engineering" },
+    { "id": "6", "name": "Fiona Green", "role": "Design Lead", "department": "Design" },
+    { "id": "7", "name": "George Hall", "role": "Engineering Manager", "department": "Engineering" },
+    { "id": "8", "name": "Hannah Adams", "role": "Data Scientist", "department": "Data" },
+    { "id": "9", "name": "Ian Carter", "role": "DevOps Engineer", "department": "Engineering" },
+    { "id": "10", "name": "Julia Baker", "role": "VP of Engineering", "department": "Engineering" }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "category": "Communication",
+      "text": "How effectively does this person articulate complex technical concepts to non-technical stakeholders?"
+    },
+    {
+      "id": "q2",
+      "category": "Communication",
+      "text": "Does this person actively listen and foster an environment where all voices are heard during discussions?"
+    },
+    {
+      "id": "q3",
+      "category": "Communication",
+      "text": "Are their written communications (e.g., PR descriptions, design docs) clear, concise, and easy to follow?"
+    },
+    {
+      "id": "q4",
+      "category": "Attitude",
+      "text": "Does this person maintain a constructive and positive attitude, even when faced with significant technical challenges?"
+    },
+    {
+      "id": "q5",
+      "category": "Attitude",
+      "text": "How open is this person to receiving constructive feedback and making meaningful adjustments?"
+    },
+    {
+      "id": "q6",
+      "category": "Attitude",
+      "text": "Do they proactively offer help to teammates without being asked?"
+    },
+    {
+      "id": "q7",
+      "category": "Hard Skills",
+      "text": "How consistently does this person deliver high-quality, bug-free, and maintainable code?"
+    },
+    {
+      "id": "q8",
+      "category": "Hard Skills",
+      "text": "Does this person possess a deep understanding of our tech stack and architectural principles?"
+    },
+    {
+      "id": "q9",
+      "category": "Hard Skills",
+      "text": "How effectively do they troubleshoot and resolve complex production issues?"
+    },
+    {
+      "id": "q10",
+      "category": "Ownership",
+      "text": "Does this person take full responsibility for their features from ideation through to deployment and monitoring?"
+    },
+    {
+      "id": "q11",
+      "category": "Ownership",
+      "text": "When issues arise, do they focus on finding solutions rather than placing blame?"
+    },
+    {
+      "id": "q12",
+      "category": "Ownership",
+      "text": "Do they consistently meet deadlines and proactively communicate if timelines need adjusting?"
+    },
+    {
+      "id": "q13",
+      "category": "Innovation Mindset",
+      "text": "Does this person regularly suggest process improvements or introduce new tools/techniques to the team?"
+    },
+    {
+      "id": "q14",
+      "category": "Innovation Mindset",
+      "text": "How willing are they to experiment with novel approaches to solve stubborn technical problems?"
+    },
+    {
+      "id": "q15",
+      "category": "Innovation Mindset",
+      "text": "Do they balance the need for innovative solutions with practical business constraints?"
+    },
+    {
+      "id": "q16",
+      "category": "Mentorship",
+      "text": "How effectively does this person guide and uplift junior engineers on the team?"
+    },
+    {
+      "id": "q17",
+      "category": "Mentorship",
+      "text": "Do they provide thorough, constructive, and educational code reviews?"
+    },
+    {
+      "id": "q18",
+      "category": "Mentorship",
+      "text": "Are they approachable and willing to share their expertise in pair programming or whiteboarding sessions?"
+    }
+  ],
+  "historicalFeedback": [
+    {
+      "id": "f1",
+      "evaluatorId": "7",
+      "subjectId": "1",
+      "relationship": "Manager",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 5, "q4": 4, "q5": 3, "q6": 4,
+        "q7": 5, "q8": 5, "q9": 4, "q10": 5, "q11": 4, "q12": 4,
+        "q13": 3, "q14": 4, "q15": 4, "q16": 5, "q17": 5, "q18": 4
+      },
+      "comments": {
+        "q3": "Excellent design docs.",
+        "q7": "Code is always robust.",
+        "q8": "Deep understanding of the system.",
+        "q10": "Takes full ownership of epics.",
+        "q16": "Great mentor to the juniors.",
+        "q17": "Very detailed code reviews."
+      },
+      "date": "2023-10-15T10:00:00Z"
+    },
+    {
+      "id": "f2",
+      "evaluatorId": "3",
+      "subjectId": "1",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 3, "q2": 4, "q3": 4, "q4": 4, "q5": 4, "q6": 5,
+        "q7": 4, "q8": 4, "q9": 3, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 5, "q17": 4, "q18": 5
+      },
+      "comments": {
+        "q6": "Always willing to jump on a call to help debug.",
+        "q16": "Helped me a lot when I joined.",
+        "q18": "Very approachable."
+      },
+      "date": "2023-10-16T14:30:00Z"
+    },
+    {
+      "id": "f3",
+      "evaluatorId": "2",
+      "subjectId": "1",
+      "relationship": "Stakeholder",
+      "context": "Cross-departmental/External",
+      "scores": {
+        "q1": 5, "q2": 4, "q3": 4, "q4": 5, "q5": 4, "q6": 3,
+        "q7": 4, "q8": 4, "q9": 4, "q10": 5, "q11": 4, "q12": 5,
+        "q13": 3, "q14": 3, "q15": 4, "q16": 3, "q17": 3, "q18": 3
+      },
+      "comments": {
+        "q1": "Alice explains technical limits very clearly to product.",
+        "q4": "Great attitude even when scope changes.",
+        "q10": "I trust Alice completely to deliver.",
+        "q12": "Always hits the release dates."
+      },
+      "date": "2023-10-17T09:15:00Z"
+    },
+    {
+      "id": "f4",
+      "evaluatorId": "1",
+      "subjectId": "3",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 3, "q4": 4, "q5": 5, "q6": 4,
+        "q7": 4, "q8": 3, "q9": 4, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 5, "q14": 5, "q15": 3, "q16": 2, "q17": 3, "q18": 3
+      },
+      "comments": {
+        "q5": "Very receptive to code review feedback.",
+        "q13": "Brought in great ideas for the new frontend architecture.",
+        "q14": "Always trying out new libraries."
+      },
+      "date": "2023-10-18T11:45:00Z"
+    },
+    {
+      "id": "f5",
+      "evaluatorId": "7",
+      "subjectId": "3",
+      "relationship": "Manager",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 3, "q2": 4, "q3": 3, "q4": 4, "q5": 4, "q6": 3,
+        "q7": 4, "q8": 3, "q9": 3, "q10": 3, "q11": 4, "q12": 3,
+        "q13": 4, "q14": 4, "q15": 2, "q16": 2, "q17": 2, "q18": 3
+      },
+      "comments": {
+        "q15": "Sometimes gets distracted by shiny new tech instead of delivering the immediate requirement."
+      },
+      "date": "2023-10-19T16:20:00Z"
+    },
+    {
+      "id": "f6",
+      "evaluatorId": "4",
+      "subjectId": "1",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 5, "q8": 4, "q9": 5, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 4, "q17": 4, "q18": 4
+      },
+      "comments": {
+        "q7": "Code is solid.",
+        "q9": "Great at debugging production issues."
+      },
+      "date": "2023-10-20T10:00:00Z"
+    },
+    {
+      "id": "f7",
+      "evaluatorId": "1",
+      "subjectId": "4",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 3, "q2": 3, "q3": 4, "q4": 3, "q5": 4, "q6": 3,
+        "q7": 4, "q8": 5, "q9": 4, "q10": 4, "q11": 3, "q12": 4,
+        "q13": 3, "q14": 3, "q15": 4, "q16": 3, "q17": 4, "q18": 3
+      },
+      "comments": {
+        "q8": "Knows the backend architecture inside out."
+      },
+      "date": "2023-10-21T10:00:00Z"
+    },
+    {
+      "id": "f8",
+      "evaluatorId": "7",
+      "subjectId": "4",
+      "relationship": "Manager",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 3, "q2": 3, "q3": 4, "q4": 3, "q5": 4, "q6": 3,
+        "q7": 4, "q8": 5, "q9": 4, "q10": 4, "q11": 3, "q12": 4,
+        "q13": 3, "q14": 3, "q15": 4, "q16": 3, "q17": 4, "q18": 3
+      },
+      "comments": {
+        "q8": "Very strong technically."
+      },
+      "date": "2023-10-22T10:00:00Z"
+    },
+    {
+      "id": "f9",
+      "evaluatorId": "2",
+      "subjectId": "4",
+      "relationship": "Stakeholder",
+      "context": "Cross-departmental/External",
+      "scores": {
+        "q1": 2, "q2": 3, "q3": 3, "q4": 3, "q5": 3, "q6": 3,
+        "q7": 4, "q8": 4, "q9": 4, "q10": 4, "q11": 3, "q12": 4,
+        "q13": 3, "q14": 3, "q15": 3, "q16": 3, "q17": 3, "q18": 3
+      },
+      "comments": {
+        "q1": "Needs to explain things more simply."
+      },
+      "date": "2023-10-23T10:00:00Z"
+    },
+    {
+      "id": "f10",
+      "evaluatorId": "1",
+      "subjectId": "7",
+      "relationship": "Direct Report",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 5, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 3, "q8": 4, "q9": 3, "q10": 5, "q11": 5, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 5, "q17": 3, "q18": 4
+      },
+      "comments": {
+        "q2": "Always listens to the team's concerns.",
+        "q10": "Takes responsibility for team failures.",
+        "q11": "Great at blameless post-mortems.",
+        "q16": "Excellent manager and mentor."
+      },
+      "date": "2023-10-24T10:00:00Z"
+    },
+    {
+      "id": "f11",
+      "evaluatorId": "3",
+      "subjectId": "7",
+      "relationship": "Direct Report",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 5, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 3, "q8": 4, "q9": 3, "q10": 4, "q11": 5, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 4, "q17": 3, "q18": 4
+      },
+      "comments": {
+        "q2": "Very supportive.",
+        "q11": "Fosters a safe environment."
+      },
+      "date": "2023-10-25T10:00:00Z"
+    },
+    {
+      "id": "f12",
+      "evaluatorId": "10",
+      "subjectId": "7",
+      "relationship": "Manager",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 5, "q2": 4, "q3": 4, "q4": 5, "q5": 4, "q6": 4,
+        "q7": 4, "q8": 4, "q9": 4, "q10": 5, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 5, "q17": 4, "q18": 4
+      },
+      "comments": {
+        "q1": "Great communication with leadership.",
+        "q4": "Always positive.",
+        "q10": "Runs a tight ship.",
+        "q16": "Has built a very strong team."
+      },
+      "date": "2023-10-26T10:00:00Z"
+    },
+    {
+      "id": "f13",
+      "evaluatorId": "1",
+      "subjectId": "5",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 5, "q8": 4, "q9": 4, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 3, "q17": 3, "q18": 3
+      },
+      "comments": {
+        "q7": "Catches everything in QA."
+      },
+      "date": "2023-10-27T10:00:00Z"
+    },
+    {
+      "id": "f14",
+      "evaluatorId": "3",
+      "subjectId": "5",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 3, "q5": 3, "q6": 3,
+        "q7": 5, "q8": 3, "q9": 4, "q10": 4, "q11": 3, "q12": 4,
+        "q13": 3, "q14": 3, "q15": 3, "q16": 3, "q17": 3, "q18": 3
+      },
+      "comments": {
+        "q7": "Very thorough testing."
+      },
+      "date": "2023-10-28T10:00:00Z"
+    },
+    {
+      "id": "f15",
+      "evaluatorId": "7",
+      "subjectId": "5",
+      "relationship": "Manager",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 5, "q8": 4, "q9": 4, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 4, "q17": 4, "q18": 4
+      },
+      "comments": {
+        "q7": "Excellent attention to detail."
+      },
+      "date": "2023-10-29T10:00:00Z"
+    },
+    {
+      "id": "f16",
+      "evaluatorId": "2",
+      "subjectId": "6",
+      "relationship": "Stakeholder",
+      "context": "Cross-departmental/External",
+      "scores": {
+        "q1": 5, "q2": 5, "q3": 4, "q4": 5, "q5": 4, "q6": 4,
+        "q7": 4, "q8": 4, "q9": 4, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 5, "q14": 5, "q15": 4, "q16": 4, "q17": 4, "q18": 4
+      },
+      "comments": {
+        "q1": "Great at explaining design rationale.",
+        "q2": "Very collaborative.",
+        "q4": "Always a pleasure to work with.",
+        "q13": "Very innovative designs.",
+        "q14": "Always pushes the boundaries."
+      },
+      "date": "2023-10-30T10:00:00Z"
+    },
+    {
+      "id": "f17",
+      "evaluatorId": "3",
+      "subjectId": "6",
+      "relationship": "Stakeholder",
+      "context": "Cross-departmental/External",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 4, "q8": 4, "q9": 4, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 4, "q17": 4, "q18": 4
+      },
+      "comments": {},
+      "date": "2023-10-31T10:00:00Z"
+    },
+    {
+      "id": "f18",
+      "evaluatorId": "7",
+      "subjectId": "8",
+      "relationship": "Stakeholder",
+      "context": "Cross-departmental/External",
+      "scores": {
+        "q1": 3, "q2": 3, "q3": 4, "q4": 4, "q5": 4, "q6": 3,
+        "q7": 4, "q8": 5, "q9": 4, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 3, "q17": 3, "q18": 3
+      },
+      "comments": {
+        "q8": "Very strong data skills."
+      },
+      "date": "2023-11-01T10:00:00Z"
+    },
+    {
+      "id": "f19",
+      "evaluatorId": "1",
+      "subjectId": "9",
+      "relationship": "Peer",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 5, "q5": 4, "q6": 5,
+        "q7": 5, "q8": 5, "q9": 5, "q10": 5, "q11": 5, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 4, "q17": 4, "q18": 4
+      },
+      "comments": {
+        "q4": "Always helps out when deployments go wrong.",
+        "q6": "Super helpful.",
+        "q7": "Rock solid infra.",
+        "q8": "Deep knowledge of AWS.",
+        "q9": "Incredible at fixing prod issues.",
+        "q10": "Owns the CI/CD pipeline.",
+        "q11": "Great at blameless culture."
+      },
+      "date": "2023-11-02T10:00:00Z"
+    },
+    {
+      "id": "f20",
+      "evaluatorId": "7",
+      "subjectId": "9",
+      "relationship": "Manager",
+      "context": "Within my immediate team",
+      "scores": {
+        "q1": 4, "q2": 4, "q3": 4, "q4": 4, "q5": 4, "q6": 4,
+        "q7": 5, "q8": 5, "q9": 5, "q10": 4, "q11": 4, "q12": 4,
+        "q13": 4, "q14": 4, "q15": 4, "q16": 4, "q17": 4, "q18": 4
+      },
+      "comments": {
+        "q7": "Great work.",
+        "q8": "Very knowledgeable.",
+        "q9": "Very reliable in a crisis."
+      },
+      "date": "2023-11-03T10:00:00Z"
+    }
+  ]
+}
