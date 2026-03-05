@@ -14,6 +14,7 @@ const Survey = () => {
 
   const [scores, setScores] = useState<Scores>({});
   const [comments, setComments] = useState<Comments>({});
+  const [relationship, setRelationship] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   if (!employee) {
@@ -40,6 +41,12 @@ const Survey = () => {
   };
 
   const validateForm = () => {
+    // 0. Relationship must be selected
+    if (!relationship) {
+      setError('Please specify your relationship to the person before submitting.');
+      return false;
+    }
+
     // 1. All questions must be answered
     if (Object.keys(scores).length !== questions.length) {
       setError('Please answer all questions before submitting.');
@@ -60,7 +67,14 @@ const Survey = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      alert(`Feedback for ${employee.name} submitted successfully! (This is a PoC)`);
+      const payload = {
+        employeeId: employee.id,
+        relationship,
+        scores,
+        comments
+      };
+      console.log('Submitting feedback:', payload);
+      alert(`Feedback for ${employee.name} submitted successfully as a ${relationship}! (This is a PoC)`);
       navigate('/');
     }
   };
@@ -90,6 +104,36 @@ const Survey = () => {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-8">
+
+        <div className="bg-white shadow overflow-hidden sm:rounded-lg border border-slate-200">
+          <div className="px-4 py-5 border-b border-slate-200 bg-slate-50 sm:px-6">
+            <h3 className="text-xl leading-6 font-medium text-slate-900">Your Information</h3>
+          </div>
+          <div className="px-4 py-5 sm:p-6">
+            <label htmlFor="relationship" className="block text-sm font-medium text-slate-700">
+              Your relationship to {employee.name} <span className="text-red-500">*</span>
+            </label>
+            <select
+              id="relationship"
+              name="relationship"
+              className={`mt-1 block w-full pl-3 pr-10 py-2 text-base border-slate-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md border ${
+                error && !relationship ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
+              }`}
+              value={relationship}
+              onChange={(e) => {
+                setRelationship(e.target.value);
+                setError(null);
+              }}
+            >
+              <option value="" disabled>Select a relationship...</option>
+              <option value="Peer">Peer</option>
+              <option value="Manager">Manager</option>
+              <option value="Direct Report">Direct Report</option>
+              <option value="Stakeholder">Stakeholder</option>
+            </select>
+          </div>
+        </div>
+
         {Object.entries(groupedQuestions).map(([category, categoryQuestions]) => (
           <div key={category} className="bg-white shadow overflow-hidden sm:rounded-lg border border-slate-200">
             <div className="px-4 py-5 border-b border-slate-200 bg-slate-50 sm:px-6">
