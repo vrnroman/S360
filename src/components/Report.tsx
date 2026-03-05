@@ -1,6 +1,14 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import mockData from '../data/mockData.json';
+
+const RELATIONSHIP_COLORS: Record<string, string> = {
+  Overall: '#2563eb', // blue-600
+  Peer: '#10b981', // emerald-500
+  Manager: '#f59e0b', // amber-500
+  Stakeholder: '#8b5cf6', // violet-500
+  'Direct Report': '#ec4899', // pink-500
+};
 
 const Report = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,27 +22,59 @@ const Report = () => {
     return <div className="p-4 text-red-600">Employee not found.</div>;
   }
 
-  // Calculate average scores per category
-  const categoryScores: Record<string, { total: number; count: number }> = {};
+  // Identify all unique relationships present in this employee's feedback
+  const relationshipsPresent = Array.from(new Set(employeeFeedback.map(f => f.relationship)));
+
+  // Calculate average scores per category, overall and by relationship
+  const categoryScores: Record<string, {
+    overall: { total: number; count: number };
+    byRelationship: Record<string, { total: number; count: number }>;
+  }> = {};
+
   questions.forEach(q => {
-    categoryScores[q.category] = { total: 0, count: 0 };
+    categoryScores[q.category] = {
+      overall: { total: 0, count: 0 },
+      byRelationship: {}
+    };
+    relationshipsPresent.forEach(rel => {
+      categoryScores[q.category].byRelationship[rel] = { total: 0, count: 0 };
+    });
   });
 
   employeeFeedback.forEach(feedback => {
+    const rel = feedback.relationship;
     Object.entries(feedback.scores).forEach(([questionId, score]) => {
       const q = questions.find(q => q.id === questionId);
       if (q) {
-        categoryScores[q.category].total += score;
-        categoryScores[q.category].count += 1;
+        // Overall stats
+        categoryScores[q.category].overall.total += score;
+        categoryScores[q.category].overall.count += 1;
+        // Relationship specific stats
+        if (!categoryScores[q.category].byRelationship[rel]) {
+            categoryScores[q.category].byRelationship[rel] = { total: 0, count: 0 };
+        }
+        categoryScores[q.category].byRelationship[rel].total += score;
+        categoryScores[q.category].byRelationship[rel].count += 1;
       }
     });
   });
 
-  const chartData = Object.entries(categoryScores).map(([category, stats]) => ({
-    subject: category,
-    score: stats.count > 0 ? Number((stats.total / stats.count).toFixed(2)) : 0,
-    fullMark: 5,
-  }));
+  const chartData = Object.entries(categoryScores).map(([category, stats]) => {
+    const dataPoint: any = {
+      subject: category,
+      Overall: stats.overall.count > 0 ? Number((stats.overall.total / stats.overall.count).toFixed(2)) : 0,
+      fullMark: 5,
+    };
+
+    relationshipsPresent.forEach(rel => {
+      const relStats = stats.byRelationship[rel];
+      if (relStats && relStats.count > 0) {
+        dataPoint[rel] = Number((relStats.total / relStats.count).toFixed(2));
+      }
+    });
+
+    return dataPoint;
+  });
 
   // Gather all comments
   const allComments: { category: string; question: string; text: string; relationship: string; id: string }[] = [];
@@ -91,22 +131,46 @@ const Report = () => {
                     contentStyle={{ backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #e2e8f0' }}
                     itemStyle={{ color: '#0f172a' }}
                   />
+                  <Legend wrapperStyle={{ paddingTop: '20px' }} />
                   <Radar
-                    name="Average Score"
-                    dataKey="score"
-                    stroke="#2563eb"
-                    fill="#3b82f6"
-                    fillOpacity={0.5}
+                    name="Overall Average"
+                    dataKey="Overall"
+                    stroke={RELATIONSHIP_COLORS['Overall']}
+                    fill={RELATIONSHIP_COLORS['Overall']}
+                    fillOpacity={0.3}
                   />
+                  {relationshipsPresent.map((rel) => (
+                    <Radar
+                      key={rel}
+                      name={rel}
+                      dataKey={rel}
+                      stroke={RELATIONSHIP_COLORS[rel] || '#94a3b8'}
+                      fill="none"
+                      strokeWidth={2}
+                    />
+                  ))}
                 </RadarChart>
               </ResponsiveContainer>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                {chartData.map((data) => (
-                 <div key={data.subject} className="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center">
-                   <p className="text-sm font-medium text-slate-500">{data.subject}</p>
-                   <p className="mt-1 text-2xl font-semibold text-blue-600">{data.score}</p>
+                 <div key={data.subject} className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                   <p className="text-base font-semibold text-slate-800 border-b border-slate-100 pb-2 mb-3">{data.subject}</p>
+                   <div className="space-y-2">
+                     <div className="flex justify-between items-center">
+                       <span className="text-sm font-medium text-slate-500">Overall</span>
+                       <span className="text-lg font-bold text-blue-600">{data.Overall}</span>
+                     </div>
+                     {relationshipsPresent.map(rel => data[rel] !== undefined && (
+                       <div key={rel} className="flex justify-between items-center">
+                         <span className="text-sm text-slate-500">{rel}</span>
+                         <span className="text-sm font-semibold" style={{ color: RELATIONSHIP_COLORS[rel] || '#94a3b8' }}>
+                           {data[rel]}
+                         </span>
+                       </div>
+                     ))}
+                   </div>
                  </div>
                ))}
             </div>
